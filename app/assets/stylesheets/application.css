@@ -5,6 +5,27 @@
  *= require_self
  *= require_tree . 
 */
+html {
+  font-size: 100%;
+  height: 100%;
+  margin-bottom: 1px; /* Always show a scrollbar to avoid jumping when the scrollbar appears  */
+}
+
+body {
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  color: #f0f0f0;
+  background: #f0f0f0 url(bg-body.gif);
+  font-size: 12px;
+}
+
+body-wrapper {
+  background: url(bg-radial-gradient.gif) fixed 230px top no-repeat;
+}
+
+a{
+ color: #ffffff;
+}
+
 ul.hmenu {
   list-style: none;
   margin: 0 0 2em;
@@ -26,3 +47,92 @@ ul.hmenu li {
   border: solid 1px #C66;
 }
 
+
+/************ Button ************/
+.button {
+  font-family: Verdana, Arial, sans-serif;
+  display: inline-block;
+  background: #459300 url(../images/bg-button-green.gif) top left repeat-x !important;
+  border: 1px solid #459300 !important;
+  padding: 4px 7px 4px 7px !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  cursor: pointer;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+                
+.button:active {
+  padding: 5px 7px 3px 7px !important;
+}
+			      
+a.remove-link {
+  color: #bb0000;
+}
+
+a.remove-link:hover {
+  color: #000;
+}
+
+/*******************************Login Screen********************************/
+body#login {
+  color: #fff;
+  background: #222 url(../images/bg-login.gif);
+}
+
+#login-wrapper {
+  background: url(../images/bg-login-top.png) top left repeat-x;
+}
+
+#login-wrapper #login-top {
+  width: 100%;
+  padding: 140px 0 50px 0;
+  text-align: center;
+}
+
+#login-wrapper #login-content {
+  text-align: left;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#login-wrapper #login-content label {
+  color: #fff;
+  font-weight: normal;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  float: left;
+  width: 70px;
+  padding: 0;
+}
+
+#login-wrapper #login-content input {
+  width: 200px;
+  float: right;
+  margin: 0 0 20px 0;
+  border: 0;
+  background: #fff;
+}
+
+#login-wrapper #login-content p {
+  padding: 0;
+}
+
+#login-wrapper #login-content p#remember-password {
+  float: right;
+}
+				
+#login-wrapper #login-content p#remember-password input {
+  float: none;
+  width: auto;
+  border: 0;
+  background: none;
+  margin: 0 10px 0 0;
+}
+
+#login-wrapper #login-content p .button {
+  width: auto;
+  margin-top: 20px;
+}
