@@ -36,6 +36,7 @@ group :test do
   gem 'shoulda'
   gem 'metrical'
   gem 'email_spec'
+  gem 'launchy'
 end
 
 gem "bson_ext", ">= 1.3.1"
