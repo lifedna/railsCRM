@@ -1,0 +1,8 @@
+= simple_form_for @customer do |c|
+  = c.input :prefix, :as => :select, :collection => Customer::PREFIXES
+  = c.input :first_name
+  = c.input :middle_name
+  = c.input :last_name
+  = c.input :date_of_birth
+  = c.input :gender, :as => :select, :collection => Customer::GENDER
+  = c.submit 'Save'
