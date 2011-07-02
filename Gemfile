@@ -18,7 +18,7 @@ gem 'web-app-theme', '>= 0.6.2'
 
 gem "kaminari"
 
-gem "livereload"
+gem "livereload", :group => [:development, :test]
 gem "hirb"
 gem "wirble"
 gem "awesome_print"
@@ -44,13 +44,13 @@ gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.0.2"
 gem "devise", ">= 1.3.4"
 gem "cancan"
-gem "simplecov"
+gem "simplecov", :group => [:development, :test]
 #gem "friendly_id"
 gem "mongoid_slug"
 
-gem "guard"
-gem "guard-rspec"
-gem "guard-livereload"
+gem "guard", :group => [:development, :test]
+gem "guard-rspec", :group => [:development, :test]
+gem "guard-livereload", :group => [:development, :test]
 
 gem "database_cleaner", ">= 0.6.7", :group => :test
 gem "mongoid-rspec", ">= 1.4.4", :group => :test
