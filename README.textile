@@ -1,10 +1,10 @@
-h1. Railscrm
+h1. railsCRM [![Build Status](https://secure.travis-ci.org/railsaholic/railsCRM.png)](http://travis-ci.org/railsaholic/railsCRM)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
 
 h2. More Information
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
 
 h2. Required Gems
 
@@ -26,11 +26,10 @@ To use this application, you will need:
 
 h2. Installing the Application
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 h2. Getting Started
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
 
 h2. Documentation and Support
 
@@ -38,11 +37,10 @@ This is the only documentation.
 
 h4. Issues
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 h2. Similar Projects
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
 
 h2. Contributing
 
@@ -57,8 +55,6 @@ If you add functionality to this application, create an alternative implementati
 
 h2. Credits
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 h2. License
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
