@@ -10,7 +10,10 @@
 #end
 
 Factory.define :user do |u|
-  u.name 'Test User'
+  u.username 'demo_user'
+  u.first_name "Test"
+  u.last_name 'User'
   u.email 'user@test.com'
   u.password 'please'
+  u.password_confirmation 'please'
 end
