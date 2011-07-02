@@ -7,7 +7,7 @@ gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
 
-gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug19', :require => 'ruby-debug', :group => [:development, :test]
 
 gem "therubyracer", ">= 0.8.2"
 
