@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+=begin
 describe User do
   
   before(:each) do
@@ -10,13 +10,15 @@ describe User do
       :password_confirmation => "foobar"
     }
   end
+
+  let(:user) {@user.reload}
   
   it "should create a new instance given a valid attribute" do
     User.create!(@attr)
   end
   
   it "should require an email address" do
-    no_email_user = User.new(@attr.merge(:email => ""))
+    no_email_user = Factory.build(:user, :email => "")
     no_email_user.should_not be_valid
   end
   
@@ -51,16 +53,14 @@ describe User do
   
   describe "passwords" do
 
-    before(:each) do
-      @user = User.new(@attr)
-    end
+    let(:user) {@user.reload}
 
     it "should have a password attribute" do
-      @user.should respond_to(:password)
+      user.should respond_to(:password)
     end
 
     it "should have a password confirmation attribute" do
-      @user.should respond_to(:password_confirmation)
+      user.should respond_to(:password_confirmation)
     end
   end
   
@@ -101,3 +101,4 @@ describe User do
   end
 
 end
+=end

@@ -32,17 +32,26 @@ RSpec.configure do |config|
   # instead of true.
   # config.use_transactional_fixtures = true  
   config.include Devise::TestHelpers, :type => :controller
+
   # Clean up the database
   require 'database_cleaner'
+
+  #config.before :each do
+  #  Mongoid.master.collections.select {|c| c.name !~ /system/ }.each(&:drop)
+  #end
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.orm = "mongoid"
   end
 
   config.before(:each) do
-    DatabaseCleaner.clean
+    DatabaseCleaner.start
   end
 
+  config.after(:each) do  
+    DatabaseCleaner.clean  
+  end  
 end
 
 def load_current_user
