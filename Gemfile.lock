@@ -96,6 +96,10 @@ GEM
     flog (2.5.1)
       ruby_parser (~> 2.0)
       sexp_processor (~> 3.0)
+    fuubar (0.0.5)
+      rspec (~> 2.0)
+      rspec-instafail (~> 0.1.4)
+      ruby-progressbar (~> 0.0.10)
     guard (0.5.0)
       thor (~> 0.14.6)
     guard-livereload (0.2.0)
@@ -222,12 +226,15 @@ GEM
     rspec-core (2.6.4)
     rspec-expectations (2.6.0)
       diff-lcs (~> 1.1.2)
+    rspec-instafail (0.1.8)
     rspec-mocks (2.6.0)
     rspec-rails (2.6.1)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.6.0)
+    rspec-set (0.0.1)
+      rspec (>= 2)
     ruby-debug-base19 (0.11.25)
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
@@ -305,6 +312,7 @@ DEPENDENCIES
   email_spec
   factory_girl_generator (~> 0.0.3)
   factory_girl_rails (>= 1.1.beta1)
+  fuubar
   guard
   guard-livereload
   guard-rspec
@@ -323,11 +331,13 @@ DEPENDENCIES
   rails (= 3.1.0.rc4)
   rb-inotify
   rspec-rails (>= 2.6.1)
+  rspec-set
   ruby-debug19
   sass-rails (~> 3.1.0.rc)
   shoulda
   simple_form
   simplecov
+  sprockets (= 2.0.0.beta.10)
   steak (>= 2.0.0.beta1)
   therubyracer (>= 0.8.2)
   uglifier

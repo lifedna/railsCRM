@@ -10,7 +10,6 @@ feature 'User Sign Up', %q{
     visit '/'
     click_link "Sign up"
     fill_in("Name", :with => "Demo Org.")
-    fill_in("Username", :with => "username")
     fill_in("First name", :with => "Demo")
     fill_in("Last name", :with => "User")
     fill_in("Email", :with => "email@email.com")
@@ -20,18 +19,16 @@ feature 'User Sign Up', %q{
     page.should have_content("Welcome! You have signed up successfully.")
   end
 
-  scenario 'User Signs Up with invalid data' do
+  scenario 'User Signs Up with incomplete data' do
     visit '/'
     click_link "Sign up"
     fill_in("Name", :with => "")
-    fill_in("Username", :with => "username")
     fill_in("First name", :with => "")
     fill_in("Last name", :with => "Last")
     fill_in("Email", :with => "email@email.com")
     fill_in("Password", :with => 123456)
     fill_in("Password confirmation", :with => 123456)
     click_button "Sign up"
-    save_and_open_page
-    #    page.should have_content("")
+    page.should_not have_content("Welcome! You have signed up successfully.")
   end
 end

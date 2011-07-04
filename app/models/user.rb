@@ -8,13 +8,13 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  field :username
-  field :first_name
-  field :last_name
+  field :first_name, :type => String
+  field :last_name,  :type => String
+  field :email,      :type => String
 
-  validates :username, :first_name, :presence => true
-  validates_uniqueness_of :username, :email, :case_sensitive => false
-  attr_accessible :username, :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
+  validates :first_name, :email, :presence => true
+  validates_uniqueness_of :email, :case_sensitive => false
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
 
   accepts_nested_attributes_for :organisations
 

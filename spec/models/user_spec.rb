@@ -1,5 +1,5 @@
 require 'spec_helper'
-=begin
+
 describe User do
   
   before(:each) do
@@ -13,10 +13,20 @@ describe User do
 
   let(:user) {@user.reload}
   
-  it "should create a new instance given a valid attribute" do
-    User.create!(@attr)
+  describe "Validations" do
+    it {should validate_presence_of(:first_name)}
+    it {should validate_presence_of(:email)}
+    it {should validate_presence_of(:password)}
   end
-  
+
+  describe "Realtionships" do
+  end
+
+  it "should create a new instance given a valid attribute" do
+    #User.create!(@attr)
+  end
+end
+=begin  
   it "should require an email address" do
     no_email_user = Factory.build(:user, :email => "")
     no_email_user.should_not be_valid
