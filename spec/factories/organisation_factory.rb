@@ -2,5 +2,5 @@
 
 Factory.define :organisation do |f|
   f.name "Demo Corp"
-  f.email "demo@demo.com"
+  #f.email "demo@demo.com"
 end
