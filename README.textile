@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/railsaholic/railsCRM.png)](http://travis-ci.org/railsaholic/railsCRM)
+"!https://secure.travis-ci.org/railsaholic/railsCRM.png!":http://travis-ci.org/railsaholic/railsCRM
 
 h2. More Information
 
