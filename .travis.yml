@@ -1,5 +1,6 @@
 # Specify which ruby versions you wish to run your tests on, each version will be used
-- ruby-head
+rvm:
   - 1.9.2
-  - jruby
-  - rbx-2.0.0pre
+  - ruby-head
+
+script: "bundle exec rspec"    
