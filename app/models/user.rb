@@ -1,6 +1,5 @@
 class User
   include Mongoid::Document
-  include Mongoid::Slug
   include Mongoid::Timestamps
 
   # Include default devise modules. Others available are:

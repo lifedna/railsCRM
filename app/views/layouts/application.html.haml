@@ -11,461 +11,50 @@
       $(document).ready(function(){
       	$(".tabs > ul").tabs();
       });
-    %title Adminizio Lite
+    %title CRM lite
   %body
   #main
     / Tray
     #tray.box
       %p.f-left.box
-        / Switcher
+        /Switcher
         %span#switcher.f-left
           %a.styleswitch.ico-col1{:href => "#", :rel => "1col", :title => "Display one column"}
             %img{:alt => "1 Column", :src => "design/switcher-1col.gif"}/
           %a.styleswitch.ico-col2{:href => "#", :rel => "2col", :title => "Display two columns"}
             %img{:alt => "2 Columns", :src => "design/switcher-2col.gif"}/
-        Project:
-        %strong Your Project
-      %p.f-right
-        User:
-        %strong
-          %a{:href => "#"} Administrator
-        \     
-        %strong
-          %a#logout{:href => "#"} Log out
-    / /tray
+        %strong DEMO CORP
+      .f-right
+        = render 'devise/menu/registration_items'
+        = render 'devise/menu/login_items' 
+    //tray
     %hr.noscreen/
+    
     / Menu
     #menu.box
       %ul.box.f-right
         %li
           %a{:href => "#"}
             %span
-              %strong Visit Site »
+              %strong Home »
       %ul.box
         %li#menu-active
           %a{:href => "#"}
-            %span Lorem ipsum
+            %span DashBoard
         / Active
         %li
           %a{:href => "#"}
-            %span Lorem ipsum
-        %li
-          %a{:href => "#"}
-            %span Lorem ipsum
-        %li
-          %a{:href => "#"}
-            %span Lorem ipsum
-        %li
-          %a{:href => "#"}
-            %span Lorem ipsum
-        %li
-          %a{:href => "#"}
-            %span Lorem ipsum
-        %li
-          %a{:href => "#"}
-            %span Lorem ipsum
-    / /header
+            %span Prospects
+    //header
+    
+    / Content (Right Column)
+    #content.box
+      = yield :content
+   
+    //content
+    //cols
     %hr.noscreen/
-    / Columns
-    #cols.box
-      / Aside (Left Column)
-      #aside.box
-        .padding.box
-          / Logo (Max. width = 200px)
-          %p#logo
-            %a{:href => "#"}
-              %img{:alt => "Our logo", :src => "tmp/logo.gif", :title => "Visit Site"}/
-          / Search
-          %form#search{:action => "#", :method => "get"}
-            %fieldset
-              %legend Search
-              %p
-                %input.input-text{:name => "", :size => "17", :type => "text"}>/
-                \ 
-                %input.input-submit-02{:type => "submit", :value => "OK"}/
-                %br/
-                %a.ico-drop{:href => "javascript:toggle('search-options');"} Advanced search
-              / Advanced search
-              #search-options{:style => "display:none;"}
-                %p
-                  %label
-                    %input{:checked => "checked", :name => "", :type => "checkbox"}/
-                    Option I.
-                  %br/
-                  %label
-                    %input{:name => "", :type => "checkbox"}/
-                    Option II.
-                  %br/
-                  %label
-                    %input{:name => "", :type => "checkbox"}/
-                    Option III.
-              / /search-options
-          / Create a new project
-          %p#btn-create.box
-            %a{:href => "#"}
-              %span Create a new project
-        / /padding
-        %ul.box
-          %li
-            %a{:href => "#"} Lorem ipsum
-          %li
-            %a{:href => "#"} Lorem ipsum
-          %li
-            %a{:href => "#"} Lorem ipsum
-          %li#submenu-active
-            %a{:href => "#"} Active Page
-            / Active
-            %ul
-              %li
-                %a{:href => "#"} Lorem ipsum
-              %li
-                %a{:href => "#"} Lorem ipsum
-              %li
-                %a{:href => "#"} Lorem ipsum
-              %li
-                %a{:href => "#"} Lorem ipsum
-              %li
-                %a{:href => "#"} Lorem ipsum
-          %li
-            %a{:href => "#"} Lorem ipsum
-          %li
-            %a{:href => "#"} Lorem ipsum
-            %ul
-              %li
-                %a{:href => "#"} Lorem ipsum
-              %li
-                %a{:href => "#"} Lorem ipsum
-              %li
-                %a{:href => "#"} Lorem ipsum
-          %li
-            %a{:href => "#"} Lorem ipsum
-      / /aside
-      %hr.noscreen/
-      / Content (Right Column)
-      #content.box
-        %h1 Styles
-        / Headings
-        %h2 Heading H2
-        %h3 Heading H3
-        %h4 Heading H4
-        %h5 Heading H5
-        / System Messages
-        %h3.tit System Messages
-        %p.msg.warning Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        %p.msg.info Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        %p.msg.done Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        %p.msg.error Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        / Tabs
-        %h3.tit Tabs
-        .tabs.box
-          %ul
-            %li
-              %a{:href => "#tab01"}
-                %span Lorem ipsum
-            %li
-              %a{:href => "#tab02"}
-                %span Lorem ipsum
-            %li
-              %a{:href => "#tab03"}
-                %span Lorem ipsum
-        / /tabs
-        / Tab01
-        #tab01
-          %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        / /tab01
-        / Tab02
-        #tab02
-          %p Donec ornare, libero vitae facilisis molestie, mi sapien venenatis felis, sed mattis lectus nisi ac massa.
-        / /tab02
-        / Tab03
-        #tab03
-          %p Nam ut lorem eu orci placerat iaculis.
-        / /tab03
-        / 2 columns
-        %h3.tit 2 Columns (50-50)
-        .col50
-          %p.t-justify Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et risus. Maecenas non nunc. Proin eleifend viverra sapien. Donec id augue. Duis erat nunc, volutpat a, bibendum quis, placerat vitae, enim. Etiam consectetur, velit in viverra tempus, urna augue sollicitudin tellus, vitae interdum arcu mi at est. Donec ornare, libero vitae facilisis molestie, mi sapien venenatis felis, sed mattis lectus nisi ac massa. Cras suscipit, neque ac auctor interdum, pede nibh porta lectus, nec aliquet nulla ipsum ac nibh. Morbi feugiat ipsum id metus. In urna sapien, porttitor sed, consectetur quis, lacinia eu, ante. Donec at ipsum. Sed arcu tellus, dapibus sit amet, auctor nec, rutrum non, lacus. Nam ut lorem eu orci placerat iaculis. Proin bibendum. Suspendisse consequat.
-        / /col50
-        .col50.f-right
-          %p.t-justify Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et risus. Maecenas non nunc. Proin eleifend viverra sapien. Donec id augue. Duis erat nunc, volutpat a, bibendum quis, placerat vitae, enim. Etiam consectetur, velit in viverra tempus, urna augue sollicitudin tellus, vitae interdum arcu mi at est. Donec ornare, libero vitae facilisis molestie, mi sapien venenatis felis, sed mattis lectus nisi ac massa. Cras suscipit, neque ac auctor interdum, pede nibh porta lectus, nec aliquet nulla ipsum ac nibh. Morbi feugiat ipsum id metus. In urna sapien, porttitor sed, consectetur quis, lacinia eu, ante. Donec at ipsum. Sed arcu tellus, dapibus sit amet, auctor nec, rutrum non, lacus. Nam ut lorem eu orci placerat iaculis. Proin bibendum. Suspendisse consequat.
-        / /col50
-        .fix
-        / 3 columns
-        %h3.tit 3 Columns (33-33-33)
-        .col33
-          %p.t-justify Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et risus. Maecenas non nunc. Proin eleifend viverra sapien. Donec id augue. Duis erat nunc, volutpat a, bibendum quis, placerat vitae, enim. Etiam consectetur, velit in viverra tempus, urna augue sollicitudin tellus, vitae interdum arcu mi at est. Donec ornare, libero vitae facilisis molestie, mi sapien venenatis felis, sed mattis lectus nisi ac massa. Cras suscipit, neque ac auctor interdum, pede nibh porta lectus, nec aliquet nulla ipsum ac nibh. Morbi feugiat ipsum id metus. In urna sapien, porttitor sed, consectetur quis, lacinia eu, ante. Donec at ipsum. Sed arcu tellus, dapibus sit amet, auctor nec, rutrum non, lacus. Nam ut lorem eu orci placerat iaculis. Proin bibendum. Suspendisse consequat.
-        / /col33
-        .col33.center
-          %p.t-justify Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et risus. Maecenas non nunc. Proin eleifend viverra sapien. Donec id augue. Duis erat nunc, volutpat a, bibendum quis, placerat vitae, enim. Etiam consectetur, velit in viverra tempus, urna augue sollicitudin tellus, vitae interdum arcu mi at est. Donec ornare, libero vitae facilisis molestie, mi sapien venenatis felis, sed mattis lectus nisi ac massa. Cras suscipit, neque ac auctor interdum, pede nibh porta lectus, nec aliquet nulla ipsum ac nibh. Morbi feugiat ipsum id metus. In urna sapien, porttitor sed, consectetur quis, lacinia eu, ante. Donec at ipsum. Sed arcu tellus, dapibus sit amet, auctor nec, rutrum non, lacus. Nam ut lorem eu orci placerat iaculis. Proin bibendum. Suspendisse consequat.
-        / /col33
-        .col33
-          %p.t-justify Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et risus. Maecenas non nunc. Proin eleifend viverra sapien. Donec id augue. Duis erat nunc, volutpat a, bibendum quis, placerat vitae, enim. Etiam consectetur, velit in viverra tempus, urna augue sollicitudin tellus, vitae interdum arcu mi at est. Donec ornare, libero vitae facilisis molestie, mi sapien venenatis felis, sed mattis lectus nisi ac massa. Cras suscipit, neque ac auctor interdum, pede nibh porta lectus, nec aliquet nulla ipsum ac nibh. Morbi feugiat ipsum id metus. In urna sapien, porttitor sed, consectetur quis, lacinia eu, ante. Donec at ipsum. Sed arcu tellus, dapibus sit amet, auctor nec, rutrum non, lacus. Nam ut lorem eu orci placerat iaculis. Proin bibendum. Suspendisse consequat.
-        / /col33
-        .fix
-        / Text Alignment
-        %h3.tit Text Alignment
-        %p.t-left
-          Left
-          %span.tag (.t-left)
-        %p.t-center
-          Center
-          %span.tag (.t-center)
-        %p.t-right
-          Right
-          %span.tag (.t-right)
-        / Size and Highlight
-        %h3.tit Text Size and Highlight
-        %p Lorem ipsum dolor sit amet
-        %p
-          %strong Lorem ipsum dolor sit amet
-          %span.tag (<strong>)
-        %p
-          %em Lorem ipsum dolor sit amet
-          %span.tag (<em>)
-        %p
-          %abbr Lorem ipsum dolor sit amet
-          %span.tag (<abbr>)
-        %p
-          %acronym Lorem ipsum dolor sit amet
-          %span.tag (<acronym>)
-        %p
-          %code Lorem ipsum dolor sit amet
-          %span.tag (<code>)
-        %p
-          %span.help Lorem ipsum dolor sit amet
-          %span.tag (.help)
-        %p
-          %span.high Lorem ipsum dolor sit amet
-          %span.tag (.high)
-        %p
-          %span.low Lorem ipsum dolor sit amet
-          %span.tag (.low)
-        %p
-          %span.bigger Lorem ipsum dolor sit amet
-          %span.tag (.bigger)
-        %p
-          %span.smaller Lorem ipsum dolor sit amet
-          %span.tag (.smaller)
-        / Unordered List
-        %h3.tit
-          Unordered List -
-          %span.tag (ul.nostyle)
-        %ul.nostyle
-          %li Lorem ipsum dolor sit amet
-          %li Lorem ipsum dolor sit amet
-          %li
-            Lorem ipsum dolor sit amet
-            %ul
-              %li Lorem ipsum dolor sit amet
-              %li Lorem ipsum dolor sit amet
-              %li
-                Lorem ipsum dolor sit amet
-                %ul
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-              %li Lorem ipsum dolor sit amet
-              %li Lorem ipsum dolor sit amet
-          %li Lorem ipsum dolor sit amet
-          %li Lorem ipsum dolor sit amet
-        / Unordered List
-        %h3.tit Unordered List
-        %ul
-          %li Lorem ipsum dolor sit amet
-          %li Lorem ipsum dolor sit amet
-          %li
-            Lorem ipsum dolor sit amet
-            %ul
-              %li Lorem ipsum dolor sit amet
-              %li Lorem ipsum dolor sit amet
-              %li
-                Lorem ipsum dolor sit amet
-                %ul
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-              %li Lorem ipsum dolor sit amet
-              %li Lorem ipsum dolor sit amet
-          %li Lorem ipsum dolor sit amet
-          %li Lorem ipsum dolor sit amet
-        / Ordered List (OL)
-        %h3.tit Ordered List
-        %ol
-          %li Lorem ipsum dolor sit amet
-          %li Lorem ipsum dolor sit amet
-          %li
-            Lorem ipsum dolor sit amet
-            %ol
-              %li Lorem ipsum dolor sit amet
-              %li Lorem ipsum dolor sit amet
-              %li
-                Lorem ipsum dolor sit amet
-                %ol
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-                  %li Lorem ipsum dolor sit amet
-              %li Lorem ipsum dolor sit amet
-              %li Lorem ipsum dolor sit amet
-          %li Lorem ipsum dolor sit amet
-          %li Lorem ipsum dolor sit amet
-        / Table
-        %h3.tit
-          Table
-          %span.tag (table.nostyle)
-        %table.nostyle
-          %tr
-            %th Lorem ipsum
-            %th Lorem ipsum
-            %th Lorem ipsum
-            %th Lorem ipsum
-            %th Lorem ipsum
-          %tr
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-          %tr
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-          %tr
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-          %tr
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-          %tr
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-        / Table (TABLE)
-        %h3.tit Table
-        %table
-          %tr
-            %th Lorem ipsum
-            %th Lorem ipsum
-            %th Lorem ipsum
-            %th Lorem ipsum
-            %th Lorem ipsum
-          %tr
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-          %tr.bg
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-          %tr
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-          %tr.bg
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-          %tr
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-            %td Lorem ipsum
-        / Form
-        %h3.tit Form
-        %fieldset
-          %legend Legend
-          %table.nostyle
-            %tr
-              %td{:style => "width:70px;"} Input:
-              %td
-                %input.input-text{:name => "", :size => "40", :type => "text"}/
-            %tr
-              %td Input:
-              %td
-                %input.input-text{:disabled => "disabled", :name => "", :size => "40", :type => "text"}/
-            %tr
-              %td.va-top Input:
-              %td
-                %textarea.input-text{:cols => "75", :rows => "7"}
-            %tr
-              %td Input:
-              %td
-                %label
-                  %input{:type => "checkbox"}/
-                  Lorem ipsum
-                \ 
-                %label
-                  %input{:type => "checkbox"}/
-                  Lorem ipsum
-                \ 
-                %label
-                  %input{:type => "checkbox"}/
-                  Lorem ipsum
-            %tr
-              %td Input:
-              %td
-                %label
-                  %input{:type => "radio"}/
-                  Lorem ipsum
-                \ 
-                %label
-                  %input{:type => "radio"}/
-                  Lorem ipsum
-                \ 
-                %label
-                  %input{:type => "radio"}/
-                  Lorem ipsum
-            %tr
-              %td.t-right{:colspan => "2"}
-                %input.input-submit{:type => "submit", :value => "Submit"}/
-        / Definition List
-        %h3.tit
-          Definition List
-          %span.tag (dl.nostyle)
-        %dl.nostyle
-          %dt Lorem ipsum
-          %dd Lorem ipsum dolor sit amet.
-          %dt Lorem ipsum
-          %dd Lorem ipsum dolor sit amet.
-          %dt Lorem ipsum
-          %dd Lorem ipsum dolor sit amet.
-        / Definition List
-        %h3.tit Definition List
-        %dl
-          %dt Lorem ipsum
-          %dd Lorem ipsum dolor sit amet.
-          %dt Lorem ipsum
-          %dd Lorem ipsum dolor sit amet.
-          %dt Lorem ipsum
-          %dd Lorem ipsum dolor sit amet.
-      / /content
-    / /cols
-    %hr.noscreen/
-    / Footer
+    
     #footer.box
       %p.f-left
         \© 2009
@@ -475,5 +64,5 @@
       %p.f-right
         Templates by
         %a{:href => "http://www.adminizio.com/"} Adminizio
-    / /footer
-  / /main
+    //footer
+  //main
