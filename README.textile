@@ -1,4 +1,4 @@
-h1. railsCRM [![Build Status](https://secure.travis-ci.org/railsaholic/railsCRM.png)](http://travis-ci.org/railsaholic/railsCRM)
+[![Build Status](https://secure.travis-ci.org/railsaholic/railsCRM.png)](http://travis-ci.org/railsaholic/railsCRM)
 
 h2. More Information
 
