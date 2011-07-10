@@ -6,12 +6,17 @@ feature 'User Signs In', %q{
   I should be able to sign in.
 } do
 
+  background do 
+     @user = Fabricate(:user)
+  end
 
+  let(:user) {@user.reload}
+  
   scenario 'User is registered' do
     visit '/'
     click_link 'Login'
-    fill_in("Email", :with => "abc@def.com")
-    fill_in("Password", :with => "12345678")
+    fill_in("Email", :with => user.email)
+    fill_in("Password", :with => user.password)
     save_and_open_page
   end
 
