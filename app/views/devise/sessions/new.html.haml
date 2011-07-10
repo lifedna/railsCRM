@@ -1,6 +1,7 @@
 = content_for :content do
   %h2 Sign in
   = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    = devise_error_messages!
     = f.input :email
     = f.input :password
     - if devise_mapping.rememberable?

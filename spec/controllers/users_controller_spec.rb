@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UsersController do
-
+=begin
   before (:each) do
     @user = Factory(:user)
     sign_in @user
@@ -20,5 +20,6 @@ describe UsersController do
     end
     
   end
-
+=end
 end
+

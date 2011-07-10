@@ -1,6 +1,7 @@
 require 'spec_helper'
 require "steak"
 require 'capybara/rails'
+require "email_spec"  
 
 module Steak::Capybara
   include Rack::Test::Methods
