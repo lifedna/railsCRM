@@ -18,6 +18,7 @@ module RailsCRM
     config.generators do |g|
       g.view_specs false
       g.helper_specs false
+      g.fixture_replacement :fabrication
     end
 
     # Settings in config/environments/* take precedence over those specified here.

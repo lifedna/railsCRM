@@ -33,7 +33,9 @@ group :test do
   gem "database_cleaner", ">= 0.6.7"
   gem "mongoid-rspec", ">= 1.4.4"
   gem "factory_girl_rails", ">= 1.1.beta1"
-  gem "factory_girl_generator", "~> 0.0.3"  
+  gem "factory_girl_generator", "~> 0.0.3"
+  gem 'ffaker'
+  gem 'fabrication'
   gem 'capybara', '>= 1.0.0.rc1'
   gem 'steak', '>= 2.0.0.beta1'
   gem 'rb-inotify'
