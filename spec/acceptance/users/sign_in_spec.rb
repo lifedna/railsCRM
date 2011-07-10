@@ -6,8 +6,10 @@ feature 'User Signs In', %q{
   I should be able to sign in.
 } do
 
-  background do 
+  background do
+     debugger
      @user = Fabricate(:user)
+     Fabricate(:organisation, :user => @user)
   end
 
   let(:user) {@user.reload}
@@ -17,7 +19,7 @@ feature 'User Signs In', %q{
     click_link 'Login'
     fill_in("Email", :with => user.email)
     fill_in("Password", :with => user.password)
-    save_and_open_page
+    click_button 'Sign in'
   end
 
 end
