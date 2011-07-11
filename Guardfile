@@ -1,23 +1,8 @@
 # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 
-group 'server' do
-  guard 'passenger' do
-    watch(%r{lib/.*\.rb})
-    watch(%r{config/.*\.rb})
-  end
-end
-
-
-group 'backend' do
-
   #guard 'bundler' do
   #  watch('Gemfile')
-  #end
-	
-  #guard 'annotate' do
-  # watch('db/schema.rb')
-  # watch('app/models/**/*.rb')
   #end
 	
   guard 'livereload' do
@@ -29,13 +14,13 @@ group 'backend' do
     watch(%r{^sass/(.*)})
   end
 	
-  #guard 'spork', :bundler => false do
-  #  watch('config/application.rb')
-  #  watch('config/environment.rb')
-  #  watch(%r{^config/environments/.*\.rb$})
-  #  watch(%r{^config/initializers/.*\.rb$})
-  #  watch('spec/spec_helper.rb')
-  #end
+  guard 'spork',:rspec_env => { 'RAILS_ENV' => 'test' }, :bundler => false do
+    watch('config/application.rb')
+    watch('config/environment.rb')
+    watch(%r{^config/environments/.*\.rb$})
+    watch(%r{^config/initializers/.*\.rb$})
+    watch('spec/spec_helper.rb')
+  end
 	
   #guard 'cucumber', :cli => '--drb --format pretty --no-profile'do
   # watch(%r{features/.+\.feature})
@@ -43,7 +28,7 @@ group 'backend' do
   #  watch(%r{features/step_definitions/(.+)_steps\.rb}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
   #end
 	
-  guard 'rspec', :version => 2, :bundler => false, :cli => "--color --format Fuubar --fail-fast" do
+  guard 'rspec', :version => 2, :bundler => false, :cli => "--color --format Fuubar --fail-fast --drb" do
     watch(%r{^spec/(.*)_spec\.rb})
     watch(%r{^app/(.*)\.rb})                           { |m| "spec/#{m[1]}_spec.rb" }
     watch(%r{^lib/(.*)\.rb})                           { |m| "spec/lib/#{m[1]}_spec.rb" }
@@ -55,4 +40,3 @@ group 'backend' do
     #watch(%r{spec/support/.+})    
     watch('spec/spec_helper.rb')                       { "spec" }
   end
-end
