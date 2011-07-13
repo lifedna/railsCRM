@@ -46,6 +46,8 @@ group :test do
   gem 'fuubar'
   gem "guard"
   gem "guard-rspec"
+  gem 'spork', '~> 0.9.0.rc' 
+  gem 'guard-spork'
   gem "guard-livereload"
   gem "simplecov"
 end
