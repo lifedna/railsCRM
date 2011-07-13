@@ -5,7 +5,7 @@ RailsCRM::Application.routes.draw do
 
   devise_for :users
   resources :users, :only => :show
-  resources :customers
+  resources :prospects
 
 
   # The priority is based upon order of creation:
