@@ -1,4 +1,4 @@
-class Customer
+class Prospect
   include Mongoid::Document
 
   field :prefix

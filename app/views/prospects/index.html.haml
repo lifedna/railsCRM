@@ -1,0 +1,8 @@
+- @prospects.each do |prospect|
+  %br
+  = prospect.full_name
+  = link_to('Edit',edit_prospect_path(prospect))
+  = link_to('Show',prospect_path(prospect))
+  = link_to('Destroy',prospect, :method => 'delete')
+  %br
+= link_to('Create Prospect', new_prospect_path)

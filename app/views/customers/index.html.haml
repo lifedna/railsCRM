@@ -1,8 +1,0 @@
-- @customers.each do |customer|
-  %br
-  = customer.full_name
-  = link_to('Edit',edit_customer_path(customer))
-  = link_to('Show',customer_path(customer))
-  = link_to('Destroy',customer, :method => 'delete')
-  %br
-= link_to('Create Customer', new_customer_path)

@@ -43,15 +43,14 @@
             %span DashBoard
         / Active
         %li
-          %a{:href => "#"}
-            %span Prospects
+          = link_to("Prospects", prospects_path)
     //header
     
     / Content (Right Column)
     #content.box
       = show_flash     
       = yield :content
-   
+      = yield
     //content
     //cols
     %hr.noscreen/
