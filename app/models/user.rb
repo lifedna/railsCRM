@@ -16,8 +16,6 @@ class User
   validates_uniqueness_of :email, :case_sensitive => false
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
 
-  embeds_one :organisation
+  belongs_to :organisation
 
-  accepts_nested_attributes_for :organisations
-  
 end

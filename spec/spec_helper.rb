@@ -5,8 +5,8 @@ Spork.prefork do
   SimpleCov.start 'rails'
   
   ENV["RAILS_ENV"] ||= 'test'
-  #require "rails/mongoid"
-  #Spork.trap_class_method(Rails::Mongoid, :load_models) 
+  require "rails/mongoid"
+  Spork.trap_class_method(Rails::Mongoid, :load_models) 
   
   require "rails/application"
   Spork.trap_method(Rails::Application, :reload_routes!)
@@ -55,7 +55,12 @@ Spork.prefork do
 end
 
 Spork.each_run do
-  
+  FactoryGirl.definition_file_paths = [
+          File.join(Rails.root, 'spec', 'factories')
+  ]
+  FactoryGirl.find_definitions 
+  #FactoryGirl.factories.clear
+  #Dir.glob("#{::Rails.root}/spec/factories/*.rb").each { |file| load "#{file}" }
 end
 
 # --- Instructions ---

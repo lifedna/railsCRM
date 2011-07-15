@@ -7,14 +7,15 @@ feature 'User Signs In', %q{
 } do
 
   background do
-    @user = Fabricate(:user)
-    @company = Fabricate(:organisation, :user => @user)
+    @company = Fabricate(:organisation)
+    @user = Fabricate(:user, :organisation => @company)
   end
 
   let(:user) {@user.reload}
   
   scenario 'User is registered and activated' do
     user.confirm!
+    user.organisation.activated!
     visit '/'
     click_link 'Login'
     fill_in("Email", :with => user.email)
@@ -34,8 +35,8 @@ feature 'User Signs In', %q{
   end
 
   scenario 'User is registered but not activated' do
-    reg_user  = Fabricate(:user)
-    c = Fabricate(:organisation, :user => user)
+    c = Fabricate(:organisation)
+    reg_user = Fabricate(:user, :organisation => c)
     visit '/'
     click_link 'Login'
     fill_in("Email", :with => reg_user.email)
@@ -44,6 +45,19 @@ feature 'User Signs In', %q{
     page.should have_content("Sign up")
     page.should have_content("Login")
     page.should_not have_content("Logout")
+  end
+
+  scenario "Company not active" do
+    org = Fabricate(:organisation, :active => 0)
+    u = Fabricate(:user, :organisation => org)
+    u.confirm!
+    visit '/'
+    click_link "Login"
+    fill_in("Email", :with => u.email)
+    fill_in("Password", :with => u.password)
+    click_button "Sign in"
+    #page.should have_content("Sorry either user/company not yet activated")
+    #page.should have_content("Login")
   end
 
 end
