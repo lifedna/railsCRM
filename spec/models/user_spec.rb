@@ -1,30 +1,28 @@
 require 'spec_helper'
 
 describe User do
+
+  before :all do
+    @company = Fabricate(:organisation)
+  end
   
-  before(:each) do
-    @attr = { 
-      :name => "Example User",
-      :email => "user@example.com",
-      :password => "foobar",
-      :password_confirmation => "foobar"
-    }
-  end
+  let(:user) { Fabricate(:user, :organisation => @company) }
 
-  let(:user) {@user.reload}
+  it {should validate_presence_of(:first_name)}
+  it {should validate_presence_of(:email)}
+  it {should validate_presence_of(:password)}
+  it {should belong_to :organisation}
   
-  describe "Validations" do
-    it {should validate_presence_of(:first_name)}
-    it {should validate_presence_of(:email)}
-    it {should validate_presence_of(:password)}
+
+  context "should create a new instance given valid attributes" do
+    new_user = Fabricate.build(:user, :organisation => @company)
+    specify { new_user.should be_valid}
   end
 
-  describe "Realtionships" do
-  end
-
-  it "should create a new instance given a valid attribute" do
-    #User.create!(@attr)
-  end
+  context "should not create new instance given invalid attributes" do
+    new_user = Fabricate.build(:user, :first_name => "", :organisation => @company)
+    specify { new_user.should_not be_valid }
+  end 
 end
 =begin  
   it "should require an email address" do
