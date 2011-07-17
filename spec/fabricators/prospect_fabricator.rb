@@ -1,10 +1,9 @@
 require "ffaker"
 Fabricator(:prospect) do
-  prefix "Mr."
-  first_name "Sachin"
+  prefix      {Faker::Name.prefix}
+  first_name  {Faker::Name.first_name}
   middle_name ""
-  last_name "Singh"
-  date_of_birth "09-06-1987"
-  care_of ""
-  gender "Male"
+  last_name   {Faker::Name.last_name}
+  dob         Date.today - 22.years
+  gender      "Male"
 end
