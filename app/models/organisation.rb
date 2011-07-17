@@ -5,9 +5,10 @@ class Organisation
   field :name
   field :active
 
-  has_many :users
-  accepts_nested_attributes_for :users
-
+  references_many :users, :depndent => :delete
+  
+  validates :name, :presence => true
+  
   def activated!
     self.active == 1 ? true : false
   end

@@ -12,7 +12,8 @@ feature 'User Signs In', %q{
   end
 
   let(:user) {@user.reload}
-  
+  let(:company) {@company.reload}
+
   scenario 'User is registered and activated' do
     user.confirm!
     user.organisation.activated!

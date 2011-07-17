@@ -8,11 +8,12 @@ describe User do
   
   let(:user) { Fabricate(:user, :organisation => @company) }
 
-  it {should validate_presence_of(:first_name)}
-  it {should validate_presence_of(:email)}
-  it {should validate_presence_of(:password)}
-  it {should belong_to :organisation}
-  
+  it { should validate_presence_of :first_name }
+  it { should validate_presence_of :email }
+  it { should validate_presence_of :password }
+  it { should be_referenced_in :organisation }
+  it { should embed_many :roles }
+    
 
   context "should create a new instance given valid attributes" do
     new_user = Fabricate.build(:user, :organisation => @company)
@@ -23,6 +24,31 @@ describe User do
     new_user = Fabricate.build(:user, :first_name => "", :organisation => @company)
     specify { new_user.should_not be_valid }
   end 
+
+  describe ".role" do
+    context "User is the first user of company" do
+      before :all do
+        @c = Fabricate(:organisation)
+        @u = Fabricate(:user, :organisation => @c)
+      end
+      specify { @u.role_name.should eql "admin"}
+    end
+
+    context "User is not the first user of company" do
+      before :all do
+        @c = Fabricate(:organisation)
+        @u = Fabricate(:user, :organisation => @c)
+        @new_u = Fabricate(:user, :invited => 1, :organisation => @c)
+      end
+
+      let(:new_u) {@new_u}
+      specify { @c.users.size.should eql 2}
+      specify { new_u.invited?.should be_true}
+      specify { new_u.role_name.should_not eql "admin"}
+      specify { new_u.role_name.should eql 'user'}
+    end
+
+  end
 end
 =begin  
   it "should require an email address" do
