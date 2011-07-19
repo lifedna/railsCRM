@@ -41,9 +41,6 @@ class ProspectsController < ApplicationController
     if @prospect.destroy
       flash[:notice] = "Successfully deleted prospect."
       redirect_to prospects_path
-    else
-      flash[:error] = "Error while deleting prospect."
-      render :index
     end
   end
 
