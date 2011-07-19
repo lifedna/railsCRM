@@ -1,10 +1,16 @@
 require 'spec_helper'
 
 describe Prospect do
+  
+  it {should validate_presence_of :first_name}
+  it {should validate_presence_of :last_name}
+  it {should validate_presence_of :dob}
+  it {should reference_one :organisations}
+  it {should reference_one :user}
 
   before(:all) do
-    load_current_user
-    @prospect = Factory(:prospect)
+    login_user
+    @prospect = Fabricate(:prospect, :organisation => @company, :user => @user)
   end
 
   let(:prospect) {@prospect.reload}
@@ -16,5 +22,4 @@ describe Prospect do
   it "should test full_name" do
     prospect.full_name.should == "Sachin Singh"
   end
-
 end
