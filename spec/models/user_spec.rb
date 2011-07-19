@@ -12,6 +12,7 @@ describe User do
   it { should validate_presence_of :email }
   it { should validate_presence_of :password }
   it { should be_referenced_in :organisation }
+  it { should reference_many :prospects }
   it { should embed_many :roles }
     
 

@@ -3,8 +3,9 @@ require 'spec_helper'
 describe ProspectsController do
 
   before(:each)  do
-    @prospect1 = Factory(:prospect)
-    @prospect2 = Factory(:prospect)
+    login_user
+    @prospect1 = Fabricate(:prospect, :organisation => @company, :user => @user)
+    @prospect2 = Fabricate(:prospect, :organisation => @company, :user => @user)
   end
 
   describe "Index Action" do
@@ -28,8 +29,7 @@ describe ProspectsController do
   describe "Create Action" do
     it "should check create if successful" do
       post :create, :prospect => {:first_name => "Sachin", :last_name => "Singh",
-        :date_of_birth => Date.today - 24.years,
-        :gender => 'Male'}
+                                  :date_of_birth => Date.today - 24.years, :gender => 'Male'}
       assigns[:prospect].should_not be_new_record
       assigns[:prospect].should be_valid
       assigns[:prospect].should be_instance_of(Prospect)
