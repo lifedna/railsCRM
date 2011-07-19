@@ -37,7 +37,7 @@ group :test do
   gem 'ffaker'
   gem 'fabrication'
   gem 'capybara', '>= 1.0.0.rc1'
-  gem 'steak', '>= 2.0.0.beta1'
+  #gem 'steak', '>= 2.0.0.beta1'
   gem 'rb-inotify'
   gem 'libnotify'
   gem 'metrical'
