@@ -29,7 +29,7 @@ Spork.prefork do
     # config.mock_with :flexmock
     # config.mock_with :rr
     config.mock_with :rspec
-    config.include Devise::TestHelpers, :type => :controller
+    config.include Devise::TestHelpers, :type => [:controller, :model]
     
     ActiveSupport::Dependencies.clear 
     
@@ -56,9 +56,13 @@ Spork.each_run do
   FactoryGirl.find_definitions 
 end
 
-def login_user
-  @compant = Fabricate(:organisation)
+def setup_user
+  @company = Fabricate(:organisation)
   @user = Fabricate(:user, :organisation => @company)
+end
+
+def login_user
+  setup_user
   @user.confirm!
   sign_in @user
 end

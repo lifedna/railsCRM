@@ -9,7 +9,6 @@ gem 'jquery-rails'
 gem 'sprockets', '= 2.0.0.beta.10'
 
 gem "therubyracer", ">= 0.8.2"
-gem 'web-app-theme', '>= 0.6.2'
 
 gem "haml", ">= 3.1.2"
 gem "haml-rails", ">= 0.3.4", :group => :development

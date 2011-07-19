@@ -20,7 +20,7 @@ class User
 
   accepts_nested_attributes_for :organisation
   referenced_in :organisation
-  referenced_in :prospect
+  references_many :prospects
   embeds_many :roles
   
   before_create :set_role
