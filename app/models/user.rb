@@ -4,8 +4,8 @@ class User
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable
+  devise :invitable, :database_authenticatable, :registerable, :confirmable,
+         :recoverable, :rememberable, :trackable, :validatable, :invite_for => 2.weeks
 
   field :first_name, :type => String
   field :last_name,  :type => String
@@ -15,7 +15,7 @@ class User
   field :invited,    :type => Boolean
 
   validates :first_name, :email, :presence => true
-  validates_uniqueness_of :email, :case_sensitive => false
+  #validates_uniqueness_of :email, :case_sensitive => false
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
 
   accepts_nested_attributes_for :organisation
@@ -31,7 +31,7 @@ class User
   end
 
   def invited?
-    self.invited == true ? true : false
+    invited
   end
   
 
