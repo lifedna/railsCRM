@@ -25,6 +25,7 @@ gem "wirble"
 gem "awesome_print"
 gem 'ruby-debug19', :require => 'ruby-debug', :group => [:development, :test]
 gem "livereload", :group => [:development, :test]
+gem 'devise_invitable'
 
 group :test do
   gem 'launchy'

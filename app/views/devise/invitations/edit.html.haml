@@ -1,0 +1,6 @@
+%h2 Set your password
+= simple_form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put }) do |f|
+  = f.input(:invitation_token, :as => :hidden)
+  = f.input(:password)
+  = f.input(:password_confirmation)
+  = f.submit "Set my password"
