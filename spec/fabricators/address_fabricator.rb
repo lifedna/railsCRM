@@ -1,0 +1,2 @@
+Fabricator(:address) do
+end
