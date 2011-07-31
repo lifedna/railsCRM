@@ -5,11 +5,11 @@ class Organisation
   field :name
   field :active
 
-  references_many :users, :depndent => :delete
+  references_many :users, :dependent => :delete
   references_many :prospects, :dependent => :delete
-    
+
   validates :name, :presence => true
-  
+
   def activated!
     self.active == 1 ? true : false
   end

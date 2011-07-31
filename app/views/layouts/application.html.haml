@@ -26,10 +26,10 @@
         %strong DEMO CORP
       .f-right
         = render 'devise/menu/registration_items'
-        = render 'devise/menu/login_items' 
+        = render 'devise/menu/login_items'
     //tray
     %hr.noscreen/
-    
+
     / Menu
     #menu.box
       %ul.box.f-right
@@ -43,18 +43,20 @@
             %span DashBoard
         / Active
         %li
-          = link_to("Prospects", prospects_path)
+          = link_to "Leads", leads_path
+        %li
+          = link_to "Prospects", prospects_path
     //header
-    
+
     / Content (Right Column)
     #content.box
-      = show_flash     
+      = show_flash
       = yield :content
       = yield
     //content
     //cols
     %hr.noscreen/
-    
+
     #footer.box
       %p.f-left
         \© 2009
