@@ -2,6 +2,23 @@
   = f.error_notification
 
   .inputs
-
+    = f.input :company_name, :required => true
+    = f.input :industry
+    = f.simple_fields_for :contacts do |c|
+      = c.input :first_name, :required => true
+      = c.input :last_name
+      = c.input :designation
+      = c.input :email
+      = c.input :phone
+    = f.input :status
+    = f.input :source
+    = f.input :website
+    = f.input :description
+    = field_set_tag "Address" do
+      = f.simple_fields_for :addresses do |a|
+        = a.input :street
+        = a.input :city
+        = a.input :country
+        = a.input :pincode
   .actions
     = f.button :submit
