@@ -16,14 +16,19 @@ feature 'Leads' do
     visit new_lead_path
     fill_in 'Company', :with => "Demo company"
     fill_in 'Industry', :with => "Industry"
-    fill_in 'First Name', :with => "Fname"
-    fill_in 'Last Name', :with => "Lname"
-    fill_in 'Title', :with => "Title"
+    fill_in 'First name', :with => "Fname"
+    fill_in 'Last name', :with => "Lname"
+    fill_in 'Designation', :with => "Title"
     fill_in 'Source', :with => "Source1"
     fill_in 'Status', :with => "Status1"
     fill_in 'Phone', :with => "phone_no"
     fill_in 'Email', :with => "email@email.com"
-    fill_in ''
-
+    fill_in 'Website', :with => "website.com"
+    page.should have_content "Address"
+    fill_in 'Street', :with => "Street1"
+    fill_in 'City', :with => "City"
+    select "India", :from => "Country"
+    fill_in 'Pincode', :with => "111111"
+    fill_in 'Description', :with => "IKnenoienrgiengoiengienirngieongnrgoien"
   end
 end
