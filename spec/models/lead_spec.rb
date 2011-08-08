@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Lead do
 
-  it {should validate_presence_of :name}
+  it {should validate_presence_of :company_name}
   it {should validate_presence_of :source}
 
 

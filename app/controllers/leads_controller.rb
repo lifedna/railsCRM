@@ -16,7 +16,7 @@ class LeadsController < ApplicationController
     @lead = Lead.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { lead_path(@lead) }
       format.json { render json: @lead }
     end
   end
@@ -43,7 +43,8 @@ class LeadsController < ApplicationController
   # POST /leads.json
   def create
     @lead = Lead.new(params[:lead])
-     
+    @contact = @lead.contacts.build
+    @address = @lead.addresses.build
     respond_to do |format|
       if @lead.save
         format.html { redirect_to @lead, notice: 'Lead was successfully created.' }
