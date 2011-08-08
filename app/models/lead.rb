@@ -11,7 +11,7 @@ class Lead
   embeds_many :contacts
   embeds_many :addresses
 
-  validates :name, :source, :presence => true
+  validates :company_name, :source, :presence => true
   referenced_in :organisation
 
   accepts_nested_attributes_for :contacts
