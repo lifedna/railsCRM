@@ -1,14 +1,19 @@
-%h1 Listing leads
+%h1 Listing Leads
 
 %table
   %tr
-    %th
-    %th
-    %th
+    %th "Lead Name"
+    %th "Source"
+    %th "Website"
+    %th "Status"
 
   - @leads.each do |lead|
     %tr
-      %td= link_to 'Show', lead
+      %td= lead.company_name
+      %td= lead.source
+      %td= lead.website
+      %td= lead.status
+      %td= link_to 'Show Details', lead
       %td= link_to 'Edit', edit_lead_path(lead)
       %td= link_to 'Destroy', lead, :confirm => 'Are you sure?', :method => :delete
 

@@ -1,4 +1,5 @@
 require 'spork'
+require 'rubygems'
 
 Spork.prefork do
   require 'simplecov'
@@ -17,6 +18,7 @@ Spork.prefork do
   require "email_spec"
   require 'factory_girl'
   require 'database_cleaner'
+  require 'ruby-debug'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
