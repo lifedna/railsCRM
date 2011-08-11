@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
+gem 'rails', '3.1.0.rc5'
 
 gem 'sass-rails', "~> 3.1.0.rc"
 gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
-gem 'sprockets', '= 2.0.0.beta.10'
+#gem 'sprockets', '= 2.0.0.beta10'
 
 gem "therubyracer", ">= 0.8.2"
 
@@ -37,7 +37,6 @@ group :test do
   gem 'ffaker'
   gem 'fabrication'
   gem 'capybara', '>= 1.0.0.rc1'
-  #gem 'steak', '>= 2.0.0.beta1'
   gem 'rb-inotify'
   gem 'libnotify'
   gem 'metrical'
