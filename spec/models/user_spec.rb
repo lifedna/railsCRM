@@ -2,17 +2,15 @@ require 'spec_helper'
 
 describe User do
 
-  before :all do
-    @company = Fabricate(:organisation)
-  end
-  
-  let(:user) { Fabricate(:user, :organisation => @company) }
+  let(:company) { Fabricate(:organisation) }
+  let(:user) { Fabricate(:user, :organisation => company) }
 
   it { should validate_presence_of :first_name }
   it { should validate_presence_of :email }
   it { should validate_presence_of :password }
-  it { should be_referenced_in :organisation }
-  it { should reference_many :prospects }
+  it { should be_referenced_in(:organisation) }
+  #it { should reference_many :prospects }
+  it { should reference_many(:leads)}
   it { should embed_many :roles }
     
 

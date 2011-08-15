@@ -19,8 +19,10 @@ class User
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
 
   accepts_nested_attributes_for :organisation
+
   referenced_in :organisation
-  references_many :prospects
+  #references_many :prospects
+  references_many :leads
   embeds_many :roles
   
   before_create :set_role

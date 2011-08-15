@@ -25,8 +25,8 @@ class LeadsController < ApplicationController
   # GET /leads/new.json
   def new
     @lead = Lead.new
-    @contact = @lead.contacts.build
-    @address = @lead.addresses.build
+    @contact = @lead.build_contact
+    @address = @contact.build_address
 
     respond_to do |format|
       format.html # new.html.erb

@@ -2,13 +2,9 @@ require 'spec_helper'
 
 feature 'User Signs In' do
 
-  background do
-    @company = Fabricate(:organisation)
-    @user = Fabricate(:user, :organisation => @company)
-  end
-
-  let(:user) {@user.reload}
-  let(:company) {@company.reload}
+  let(:company) { Fabricate(:organisation) }
+  let(:user) { Fabricate(:user, :organisation => company)}
+  
 
   scenario 'User is registered and activated' do
     user.confirm!
