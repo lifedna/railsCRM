@@ -26,6 +26,7 @@ gem "awesome_print"
 gem 'ruby-debug19', :require => 'ruby-debug', :group => [:development, :test]
 gem "livereload", :group => [:development, :test]
 gem 'devise_invitable'
+gem 'newrelic_rpm'
 
 group :test do
   gem 'launchy'

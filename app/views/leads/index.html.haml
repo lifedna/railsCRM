@@ -2,17 +2,26 @@
 
 %table
   %tr
-    %th "Lead Name"
-    %th "Source"
-    %th "Website"
-    %th "Status"
+    %th Lead Name
+    %th Company
+    %th Source
+    %th Website
+    %th Status
+    %th Email
+    %th SkypeID
+    %th Assigned To
+    %th Actions
 
   - @leads.each do |lead|
     %tr
-      %td= lead.company_name
+      %td= lead.name
+      %td= lead.company
       %td= lead.source
       %td= lead.website
       %td= lead.status
+      %td= lead.email
+      %td= lead.contact.try(:skype_id)
+      %td= lead.assigned_to
       %td= link_to 'Show Details', lead
       %td= link_to 'Edit', edit_lead_path(lead)
       %td= link_to 'Destroy', lead, :confirm => 'Are you sure?', :method => :delete

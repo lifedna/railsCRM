@@ -61,3 +61,5 @@ tmp/*
 
 # vim artifacts
 **.swp
+bin/*
+config/newrelic.yml
