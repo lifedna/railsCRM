@@ -1,7 +1,7 @@
-require 'spec_helper'
+#require 'spec_helper'
 
 feature 'Leads' do
-  
+
   background do
     create_user_and_login
     @lead = Fabricate(:lead)
@@ -13,7 +13,7 @@ feature 'Leads' do
     current_path.should == leads_path
   end
 
-  
+
   scenario "List all leads" do
     within("h1") do
       page.should have_content "Listing Leads"

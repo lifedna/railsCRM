@@ -2,30 +2,56 @@ source 'http://rubygems.org'
 
 gem 'rails'
 
-gem 'sass-rails'
-gem 'coffee-script'
-gem 'uglifier'
+group :assets do
+  gem 'sass-rails', "~> 3.1.0.rc"
+  gem 'coffee-rails', "~> 3.1.0.rc"
+  gem 'uglifier'
+end
+
+# JavasScript libs
 gem 'jquery-rails'
+gem 'modernizr-rails'
+
+# Stylesheet libs
+# gem 'blueprint-rails'
+
+# Ajax request CoffeeScript support
+# gem 'coffeebeans'
+
+# Heroku deployment requirements
+# group :production do
+#   gem 'therubyracer-heroku'
+#   gem 'pg'
+# end
+
+gem "sprockets"
 
 gem "therubyracer", ">= 0.8.2"
 
 gem "haml", ">= 3.1.2"
 gem "haml-rails", ">= 0.3.4", :group => :development
-gem "simple_form"
 
-gem "kaminari"
+
+gem "simple_form"
+gem 'will_paginate', '~> 3.0'
 gem "bson_ext", ">= 1.3.1"
 gem "mongoid", ">= 2.0.2"
+
 gem "devise", ">= 1.3.4"
 gem "cancan"
+gem 'devise_invitable'
+
+gem 'state_machine'
+gem 'ruby-debug19', :require => 'ruby-debug', :group => [:development, :test]
 
 gem "hirb"
 gem "wirble"
 gem "awesome_print"
 #gem 'ruby-debug19', :require => 'ruby-debug', :group => [:development, :test]
 gem "livereload", :group => [:development, :test]
-gem 'devise_invitable'
+
 gem 'newrelic_rpm'
+gem 'thin', :group => [:development, :test]
 
 group :test do
    gem 'launchy'
@@ -50,3 +76,12 @@ group :test do
    gem "guard-livereload"
    gem "simplecov"
 end
+gem "devise"
+gem "rspec-rails", :group => [:development, :test]
+gem "annotate", :group => [:development]
+gem "ffaker", :group => [:development]
+gem "simplecov", :group => [:development, :test]
+gem "webrat", :group => [:test]
+gem "spork", :group => [:test]
+gem "factory_girl_rails", :group => [:test]
+gem "rails-footnotes", :group => [:development]

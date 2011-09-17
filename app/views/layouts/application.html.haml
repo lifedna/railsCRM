@@ -1,13 +1,8 @@
-!!! XML
-!!! Strict
-%html{:lang => "en", "xml:lang" => "en", :xmlns => "http://www.w3.org/1999/xhtml"}
+!!!
+%html
   %head
-    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "content-type"}/
-    %meta{:content => "en", "http-equiv" => "content-language"}/
-    %meta{:content => "noindex,nofollow", :name => "robots"}/
-    = stylesheet_link_tag  "reset.css","main.css","1col.css","2col.css","style.css"
-    = javascript_include_tag "jquery","switcher","toggle","ui.core","ui.tabs"
-    = csrf_meta_tags
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
     :javascript
       $(document).ready(function(){
       	$(".tabs > ul").tabs();
@@ -21,15 +16,15 @@
         /Switcher
         %span#switcher.f-left
           %a.styleswitch.ico-col1{:href => "#", :rel => "1col", :title => "Display one column"}
-            %img{:alt => "1 Column", :src => "switcher-1col.gif"}/
+            %img{:alt => "1 Column", :src => "switcher-1col.gif"}
           %a.styleswitch.ico-col2{:href => "#", :rel => "2col", :title => "Display two columns"}
-            %img{:alt => "2 Columns", :src => "switcher-2col.gif"}/
+            %img{:alt => "2 Columns", :src => "switcher-2col.gif"}
         %strong DEMO CORP
       .f-right
         = render 'devise/menu/registration_items'
         = render 'devise/menu/login_items'
     //tray
-    %hr.noscreen/
+    %hr.noscreen
 
     / Menu
     #menu.box
@@ -44,9 +39,8 @@
             %span DashBoard
         / Active
         %li
-          = link_to "Leads", leads_path
-        %li
-          = link_to "Prospects", prospects_path
+          %span= link_to "Leads", leads_path
+
     //header
 
     / Content (Right Column)
@@ -56,7 +50,7 @@
       = yield
     //content
     //cols
-    %hr.noscreen/
+    %hr.noscreen
 
     #footer.box
       %p.f-left
