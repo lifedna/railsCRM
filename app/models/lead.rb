@@ -34,7 +34,5 @@ class Lead
   def email
     contact.email
   end
-
-
-
+  
 end
