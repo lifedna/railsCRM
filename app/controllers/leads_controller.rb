@@ -1,4 +1,7 @@
 class LeadsController < ApplicationController
+
+  before_filter :find_lead, :except => [:index, :new, :create]
+
   # GET /leads
   # GET /leads.json
   def index
@@ -13,8 +16,6 @@ class LeadsController < ApplicationController
   # GET /leads/1
   # GET /leads/1.json
   def show
-    @lead = Lead.find(params[:id])
-
     respond_to do |format|
       format.html { lead_path(@lead) }
       format.json { render json: @lead }
@@ -36,7 +37,6 @@ class LeadsController < ApplicationController
 
   # GET /leads/1/edit
   def edit
-    @lead = Lead.find(params[:id])
   end
 
   # POST /leads
@@ -58,7 +58,6 @@ class LeadsController < ApplicationController
   # PUT /leads/1
   # PUT /leads/1.json
   def update
-    @lead = Lead.find(params[:id])
 
     respond_to do |format|
       if @lead.update_attributes(params[:lead])
@@ -74,12 +73,21 @@ class LeadsController < ApplicationController
   # DELETE /leads/1
   # DELETE /leads/1.json
   def destroy
-    @lead = Lead.find(params[:id])
-    @lead.destroy
-
+    if @lead.destroy
+      flash[:notice] = "Lead Destroyed"
+    else
+      flash[:error] = "Unable to destroy lead."
+    end
     respond_to do |format|
       format.html { redirect_to leads_url }
       format.json { head :ok }
     end
   end
+
+  private
+
+  def find_lead
+    @lead = Lead.find(params[:id])
+  end
+
 end

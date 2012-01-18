@@ -40,8 +40,10 @@ class ProspectsController < ApplicationController
   def destroy    
     if @prospect.destroy
       flash[:notice] = "Successfully deleted prospect."
-      redirect_to prospects_path
+    else
+      flash[:error] = "Error while destroying lead."
     end
+    redirect_to prospects_path
   end
 
   private

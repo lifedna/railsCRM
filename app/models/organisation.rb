@@ -11,6 +11,6 @@ class Organisation
   validates :name, :presence => true
 
   def activated!
-    self.active == 1 ? true : false
+    active == 1 ? true : false
   end
 end

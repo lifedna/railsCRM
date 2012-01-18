@@ -7,4 +7,4 @@
     - if devise_mapping.rememberable?
       = f.input :remember_me, :input_html => { :value => '1' } 
     = f.submit "Sign in"
-  = render :partial => "devise/shared/links"
+  = render "devise/shared/links"

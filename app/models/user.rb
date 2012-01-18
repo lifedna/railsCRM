@@ -15,7 +15,7 @@ class User
   field :invited,    :type => Boolean
 
   validates :first_name, :email, :presence => true
-  #validates_uniqueness_of :email, :case_sensitive => false
+  validates_uniqueness_of :email, :case_sensitive => false
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
 
   accepts_nested_attributes_for :organisation
@@ -27,21 +27,14 @@ class User
   
   before_create :set_role
 
-
   def role_name
     role
   end
 
-  def invited?
-    invited
-  end
-  
-
   private
 
   def set_role
-    self.role = invited? ? "user" : "admin"
+    self.role = (invited? ? "user" : "admin")
   end
  
-
 end
