@@ -13,4 +13,5 @@ class Organisation
   def activated!
     active == 1 ? true : false
   end
+  
 end

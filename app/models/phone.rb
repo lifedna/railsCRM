@@ -9,5 +9,4 @@ class Phone
 
   embedded_in :person, :inverse_of => :phones
 
-
 end
