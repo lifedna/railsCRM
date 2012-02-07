@@ -7,6 +7,7 @@
     %meta{:content => "noindex,nofollow", :name => "robots"}/
     = stylesheet_link_tag  "reset.css","main.css","1col.css","2col.css","style.css"
     = javascript_include_tag "jquery","switcher","toggle","ui.core","ui.tabs"
+    = csrf_meta_tags
     :javascript
       $(document).ready(function(){
       	$(".tabs > ul").tabs();

@@ -19,10 +19,8 @@ class Contact
 
   validates :first_name, :email, :designation, :presence => true
 
-
   def full_name
     "#{first_name} #{try(:last_name)}".strip
   end
-
   
 end
