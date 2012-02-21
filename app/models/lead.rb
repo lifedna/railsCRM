@@ -28,7 +28,7 @@ class Lead
   scope :assigned_to, lambda { |user| where('assigned_to = ?' , user.id) }
 
   def name
-    contact.full_name
+    contact && contact.full_name
   end
 
   def company
@@ -36,7 +36,7 @@ class Lead
   end
 
   def email
-    contact.email
+    contact && contact.email
   end
  
 end
