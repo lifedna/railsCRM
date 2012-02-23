@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc8'
+gem 'rails'
 
-gem 'sass-rails', "~> 3.1.0.rc"
+gem 'sass-rails'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'jquery-rails'
@@ -33,7 +33,7 @@ group :test do
    gem "database_cleaner", ">= 0.6.7"
    gem "mongoid-rspec", ">= 1.4.4"
    gem "factory_girl_rails", ">= 1.1.beta1"
-   gem "factory_girl_generator", "~> 0.0.3"
+   gem "factory_girl_generator"
    gem 'ffaker'
    gem 'fabrication'
    gem 'capybara', '>= 1.0.0.rc1'
@@ -45,7 +45,7 @@ group :test do
    gem 'fuubar'
    gem "guard"
    gem "guard-rspec"
-   gem 'spork', '~> 0.9.0.rc'
+   gem 'spork'
    gem 'guard-spork'
    gem "guard-livereload"
    gem "simplecov"
