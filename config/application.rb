@@ -29,6 +29,8 @@ module RailsCRM
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/lib)
+
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -53,6 +55,8 @@ module RailsCRM
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.sass.load_paths << Compass::Frameworks['compass'].stylesheets_directory
+    config.sass.load_paths << Compass::Frameworks['twitter_bootstrap'].stylesheets_directory
 
     config.mongoid.preload_models = false
 
@@ -61,6 +65,8 @@ module RailsCRM
         ActiveSupport::Dependencies.mechanism = :load
       end
     end
+
+     Devise.apply_schema = false
 
   end
 end

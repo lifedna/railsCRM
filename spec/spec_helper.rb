@@ -1,16 +1,16 @@
-require 'spork'
+#require 'spork'
 require 'rubygems'
 
-Spork.prefork do
-  require 'simplecov'
-  SimpleCov.start 'rails'
-  
+#Spork.prefork do
+# require 'simplecov'
+#  SimpleCov.start 'rails'
+
   ENV["RAILS_ENV"] ||= 'test'
-  require "rails/mongoid"
-  Spork.trap_class_method(Rails::Mongoid, :load_models) 
-  
-  require "rails/application"
-  Spork.trap_method(Rails::Application, :reload_routes!)
+# require "rails/mongoid"
+#  Spork.trap_class_method(Rails::Mongoid, :load_models)
+
+# require "rails/application"
+# Spork.trap_method(Rails::Application, :reload_routes!)
 
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
@@ -32,9 +32,9 @@ Spork.prefork do
     # config.mock_with :rr
     config.mock_with :rspec
     config.include Devise::TestHelpers, :type => [:controller, :model]
-    
-    ActiveSupport::Dependencies.clear 
-    
+
+    ActiveSupport::Dependencies.clear
+
     # Clean up the database
     config.before(:suite) do
       DatabaseCleaner.strategy = :truncation
@@ -45,18 +45,16 @@ Spork.prefork do
       DatabaseCleaner.start
     end
 
-    config.after(:each) do  
-      DatabaseCleaner.clean  
-    end  
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
   end
-end
+#end
 
-Spork.each_run do
-  FactoryGirl.definition_file_paths = [
-          File.join(Rails.root, 'spec', 'factories')
-  ]
-  FactoryGirl.find_definitions 
-end
+#Spork.each_run do
+  FactoryGirl.definition_file_paths = [File.join(Rails.root, 'spec', 'factories')]
+  FactoryGirl.find_definitions
+#end
 
 def setup_user
   @company = Fabricate(:organisation)

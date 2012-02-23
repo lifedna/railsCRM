@@ -4,7 +4,7 @@ feature 'User Signs In' do
 
   let(:company) { Fabricate(:organisation) }
   let(:user) { Fabricate(:user, :organisation => company)}
-  
+
 
   scenario 'User is registered and activated' do
     user.confirm!
@@ -31,7 +31,7 @@ feature 'User Signs In' do
     c = Fabricate(:organisation)
     reg_user = Fabricate(:user, :organisation => c)
     visit '/'
-    click_link 'Login'
+    click_link 'Sign in'
     fill_in("Email", :with => reg_user.email)
     fill_in("Password", :with => reg_user.password)
     click_button 'Sign in'
@@ -45,6 +45,7 @@ feature 'User Signs In' do
     u = Fabricate(:user, :organisation => org)
     u.confirm!
     visit '/'
+    save_and_open_page
     click_link "Login"
     fill_in("Email", :with => u.email)
     fill_in("Password", :with => u.password)

@@ -18,11 +18,11 @@ describe Lead do
     contact.create_address( Fabricate.attributes_for(:address))
   end
 
-  
+
   describe "#name" do
   	it "should return leads full name" do
- 	  lead.name.should eql "#{lead.contact.first_name} #{lead.contact.last_name}"
- 	end	  	
+ 	    lead.name.should eql "#{lead.contact.first_name} #{lead.contact.last_name}"
+ 	  end
   end
 
   describe "#company" do

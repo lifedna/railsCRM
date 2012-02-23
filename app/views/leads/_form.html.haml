@@ -1,30 +1,28 @@
 = simple_form_for(@lead) do |f|
   = f.error_notification
-  .inputs
-    = f.input :company_name, :required => true
-    = f.input :assigned_to, :collection => User.all - [current_user]
-    = f.simple_fields_for :contact do |c|
-      = c.input :first_name, :required => true
-      = c.input :last_name
-      = c.input :designation
-      = c.input :email
-      = field_set_tag "Contact Details" do
-        = f.simple_fields_for :phones do |p|
-          = p.input :phone_type, :collection => Phone::PHONE_TYPE
-          = p.input :country_code, :as => :string
-          = p.input :phone_number
-      = field_set_tag "Address" do
-        = f.simple_fields_for :addresses do |a|
-          = a.input :street1
-          = a.input :street2
-          = a.input :city
-          = a.input :country
-          = a.input :zipcode
-    = field_set_tag "Description" do
-      = f.input :industry
-      = f.input :status, :collection => ['New', 'Contacted', 'Rejected']
-      = f.input :source
-      = f.input :website
-      = f.input :description
-  .actions
-    = f.submit "Save Lead"
+  = f.input :company_name, :required => true, :input_html => {:class => "clearfix"}
+  = f.simple_fields_for :contacts do |c|
+    = c.input :first_name, :required => true, :input_html => {:class => "clearfix"}
+    = c.input :last_name, :input_html => {:class => "clearfix"}
+    = c.input :designation, :input_html => {:class => "clearfix"}
+    = c.input :email, :input_html => {:class => "clearfix"}
+    = field_set_tag "Contact Details" do
+      = f.simple_fields_for :phones do |p|
+        = p.input :phone_type, :collection => Phone::PHONE_TYPE, :input_html => {:class => "clearfix"}
+        = p.input :country_code, :input_html => {:class => "clearfix"}
+        = p.input :phone_number, :input_html => {:class => "clearfix"}
+    = field_set_tag "Address" do
+      = f.simple_fields_for :addresses do |a|
+        = a.input :street1, :input_html => {:class => "clearfix"}
+        = a.input :street2, :input_html => {:class => "clearfix"}
+        = a.input :city, :input_html => {:class => "clearfix"}
+        = a.input :country, :input_html => {:class => "clearfix"}
+        = a.input :zipcode, :input_html => {:class => "clearfix"}
+  = field_set_tag "Description" do
+    = f.input :industry, :input_html => {:class => "clearfix"}
+    = f.input :status, :input_html => {:class => "clearfix"}
+    = f.input :source, :input_html => {:class => "clearfix"}
+    = f.input :website, :input_html => {:class => "clearfix"}
+    = f.input :description,:input_html => {:class => "clearfix"}
+    
+  = f.submit "Save Lead"
