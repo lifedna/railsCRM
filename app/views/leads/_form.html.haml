@@ -1,6 +1,6 @@
 = simple_form_for(@lead) do |f|
   = f.error_notification
-  = f.input :company_name, :required => true, :input_html => {:class => "clearfix"}
+  = f.input :company_name, :required => true, :input_html => {:class => "span3"}
   = f.simple_fields_for :contacts do |c|
     = c.input :first_name, :required => true, :input_html => {:class => "clearfix"}
     = c.input :last_name, :input_html => {:class => "clearfix"}
@@ -24,5 +24,5 @@
     = f.input :source, :input_html => {:class => "clearfix"}
     = f.input :website, :input_html => {:class => "clearfix"}
     = f.input :description,:input_html => {:class => "clearfix"}
-    
+
   = f.submit "Save Lead"

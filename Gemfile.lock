@@ -197,7 +197,7 @@ GEM
       ffi (~> 1.0.9)
       json_pure
       rubyzip
-    simple_form (1.5.2)
+    simple_form (2.0.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
     sprockets (2.1.2)

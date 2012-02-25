@@ -10,7 +10,7 @@ feature 'User Signs In' do
     user.confirm!
     user.organisation.activated!
     visit '/'
-    click_link 'Login'
+    click_link 'Sign in'
     fill_in("Email", :with => user.email)
     fill_in("Password", :with => user.password)
     click_button 'Sign in'
@@ -19,7 +19,7 @@ feature 'User Signs In' do
 
   scenario 'User is not registered' do
     visit '/'
-    click_link 'Login'
+    click_link 'Sign in'
     fill_in("Email", :with => "unregistered@user.com")
     fill_in("Password", :with => "12345678")
     click_button "Sign in"
@@ -45,8 +45,7 @@ feature 'User Signs In' do
     u = Fabricate(:user, :organisation => org)
     u.confirm!
     visit '/'
-    save_and_open_page
-    click_link "Login"
+    click_link "Sign in"
     fill_in("Email", :with => u.email)
     fill_in("Password", :with => u.password)
     click_button "Sign in"

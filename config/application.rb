@@ -55,8 +55,8 @@ module RailsCRM
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.sass.load_paths << Compass::Frameworks['compass'].stylesheets_directory
-    config.sass.load_paths << Compass::Frameworks['twitter_bootstrap'].stylesheets_directory
+    #config.sass.load_paths << Compass::Frameworks['compass'].stylesheets_directory
+    #config.sass.load_paths << Compass::Frameworks['twitter_bootstrap'].stylesheets_directory
 
     config.mongoid.preload_models = false
 

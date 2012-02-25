@@ -4,10 +4,10 @@
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %title CRM lite
+  %title CRM Lite
   %body
-    %div.topbar
-      %div.fill
+    %div.navbar
+      %div.navbar-inner
         %div.container
           = render "shared/menu"
     %div.container
@@ -15,9 +15,7 @@
         %div.page-header
           = render "shared/header"
         %div.row
-          %div.span12
-          - flash.each do |name, msg|
-            = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
+          //= show_flash
           = yield
-        %footer
-          = render "shared/footer"
+    %footer
+      = render "shared/footer"

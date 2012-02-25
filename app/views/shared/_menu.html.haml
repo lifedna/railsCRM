@@ -1,11 +1,12 @@
 %ul.nav
-  %li.active= link_to "Home", root_path
+  %span.brand CRM Lite
+  %li.active
+    = link_to "Home", root_path
   %li DashBoard
-  %li= link_to "Leads", leads_path
   - if user_signed_in?
-    Welcome to
-    %li= link_to current_user.username, current_user
+    %li= link_to "Leads", leads_path
+    Welcome to "#{link_to current_user.name, current_user }"
     %li= link_to "Logout", destroy_user_session_path
   - else
-    %li= link_to "Sign In", new_user_session_path
+    %li= link_to "Sign in", new_user_session_path
     %li= link_to "Sign up", new_user_registration_path

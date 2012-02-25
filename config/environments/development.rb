@@ -42,4 +42,3 @@ end
    :authentication       => "plain",
    :enable_starttls_auto => true
    }
->>>>>>> create initial application
