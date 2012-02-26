@@ -1,5 +1,10 @@
-%h1 Listing Leads
-%table.table-striped
+.page_header
+  %span
+    %h2 Lead Listing
+  %span
+    .btn-group
+      = link_to "Create Lead", new_lead_path, :class => "btn"
+%table.table.table-striped
   %tr
     %th Lead Name
     %th Company
@@ -18,10 +23,8 @@
       %td= lead.website
       %td= lead.status
       %td= lead.email
-      %td= lead.contact.try(:skype_id)
+      %td= lead.contact.try(:skype)
       %td= lead.assigned_to
       %td= link_to 'Show Details', lead
       %td= link_to 'Edit', edit_lead_path(lead)
       %td= link_to 'Destroy', lead, :confirm => 'Are you sure?', :method => :delete
-%br
-= link_to 'Add New Lead', new_lead_path

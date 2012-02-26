@@ -2,7 +2,7 @@
 %html
   %head
     = stylesheet_link_tag "application"
-    = javascript_include_tag "application"
+    = javascript_include_tag "jquery", "bootstrap-dropdown", "bootstrap-alert", "application"
     = csrf_meta_tags
   %title CRM Lite
   %body
@@ -15,7 +15,7 @@
         %div.page-header
           = render "shared/header"
         %div.row
-          //= show_flash
+          = render "shared/flash", :flash => flash
           = yield
     %footer
       = render "shared/footer"

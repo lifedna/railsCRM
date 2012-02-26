@@ -8,8 +8,8 @@ class Contact
   field :linkedin
   field :twitter
   field :skype
-  
-  referenced_in :contactable, :polymorphic => true, :inverse_of => :contact
+
+  belongs_to :contactable, :polymorphic => true, :inverse_of => :contact
   embeds_many :phones
   embeds_one :address, :as => :addressable
   #embedded_in :prospect_contact
@@ -22,5 +22,5 @@ class Contact
   def full_name
     "#{first_name} #{try(:last_name)}".strip
   end
-  
+
 end

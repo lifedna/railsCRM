@@ -1,0 +1,6 @@
+- flash.each do |type, message|
+  - unless flash[type].blank?
+    .alert{:class => flash_class_for(type)}
+      %a.close{ "data-dismiss" => "alert"} x
+      = message
+
