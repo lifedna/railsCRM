@@ -1,7 +1,9 @@
 module ApplicationHelper
-  def show_flash
-    [:notice, :error, :warning, :done].collect do |key|
-      content_tag(:div, flash[key], :class => "msg #{key}") unless flash[key].blank?
-    end.join
+  def flash_class_for(type)
+    case type
+    when :notice then "alert-success"
+    when :error  then "alert-error"
+    when :alert  then "alert-warning"
+    end
   end
 end

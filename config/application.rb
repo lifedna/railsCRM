@@ -9,7 +9,8 @@ require "active_resource/railtie"
 
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+#Bundler.require(:default, Rails.env) if defined?(Bundler)
+Bundler.require *Rails.groups(:assets) if defined?(Bundler)
 
 module RailsCRM
   class Application < Rails::Application
@@ -28,6 +29,8 @@ module RailsCRM
 
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
+    config.autoload_paths += %W(#{config.root}/lib)
+
 
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
@@ -52,12 +55,18 @@ module RailsCRM
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    #config.sass.load_paths << Compass::Frameworks['compass'].stylesheets_directory
+    #config.sass.load_paths << Compass::Frameworks['twitter_bootstrap'].stylesheets_directory
+
+    config.mongoid.preload_models = false
 
     if Rails.env.test?
       initializer :after => :initialize_dependency_mechanism do
         ActiveSupport::Dependencies.mechanism = :load
       end
     end
+
+     Devise.apply_schema = false
 
   end
 end

@@ -1,3 +1,14 @@
-%p#notice= notice
+.page_header
+  %h2= @lead.name
+.well
+  %p
+    %b Company Name
+    = @lead.company_name
+  %p
+    %b Contact Person
+    = @lead.name
+
+
+
 = link_to 'Edit', edit_lead_path(@lead)
 = link_to 'Back', leads_path

@@ -9,14 +9,14 @@ class Lead
   field :website
   field :status
   field :description
-  
+
   #embeds_one :business_address, :as => :addressable
-  
-  references_one :contact, :as => :contactable
-  referenced_in :campaign
-  referenced_in :organisation, :inverse_of => :leads
-  referenced_in :user, :inverse_of => :leads
-  referenced_in :assignee, :class_name => "User", :foreign_key => :assigned_to, :inverse_of => :leads
+
+  has_one :contact, :as => :contactable, :autosave => true
+  belongs_to :campaign
+  belongs_to :organisation, :inverse_of => :leads
+  belongs_to :user, :inverse_of => :leads
+  belongs_to :assignee, :class_name => "User", :foreign_key => :assigned_to, :inverse_of => :leads
 
   accepts_nested_attributes_for :contact
 
@@ -38,5 +38,5 @@ class Lead
   def email
     contact && contact.email
   end
- 
+
 end

@@ -14,11 +14,10 @@ h2. Dependencies
 
 To use this application, you will need:
 
-* The Ruby language (version 1.9.2)
-* Rails (version 3.0.4 or newer)
+* The Ruby language (version 1.9.3)
+* Rails (version 3.2 or newer)
 * Mongoid
 * Rspec
-* Steak
 * Cancan
 * Capybara
 * Devise

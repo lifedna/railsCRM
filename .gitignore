@@ -63,3 +63,4 @@ tmp/*
 **.swp
 bin/*
 config/newrelic.yml
+config/database.yml

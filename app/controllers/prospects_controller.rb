@@ -1,5 +1,5 @@
 class ProspectsController < ApplicationController
-
+  before_filter :authenticate_user!
   before_filter :load_prospect, :except => [:index, :new, :create]
 
   def index
@@ -37,7 +37,7 @@ class ProspectsController < ApplicationController
   def show
   end
 
-  def destroy    
+  def destroy
     if @prospect.destroy
       flash[:notice] = "Successfully deleted prospect."
     else
@@ -47,9 +47,9 @@ class ProspectsController < ApplicationController
   end
 
   private
-  
+
   def load_prospect
     @prospect = Prospect.find(params[:id])
   end
-  
+
 end

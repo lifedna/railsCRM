@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'Leads' do
-  
+
   background do
     create_user_and_login
     @lead = Fabricate(:lead)
@@ -13,18 +13,17 @@ feature 'Leads' do
     current_path.should == leads_path
   end
 
-  
+
   scenario "List all leads" do
-    within("h1") do
-      page.should have_content "Listing Leads"
+    within("h2") do
+      page.should have_content "Lead Listing"
     end
   end
 
   scenario 'Create a new lead' do
-    click_link("Add New Lead")
+    click_link("Create Lead")
     current_path.should == new_lead_path
     fill_in 'Company', :with => @lead.company_name
-    fill_in 'Industry', :with => @lead.industry
     fill_in 'Source', :with => @lead.source
     fill_in 'Status', :with => @lead.status
     fill_in 'Email', :with => @contact.email
