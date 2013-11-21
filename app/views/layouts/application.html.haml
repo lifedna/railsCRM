@@ -1,8 +1,8 @@
 !!!
 %html
   %head
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "jquery", "bootstrap-dropdown", "bootstrap-alert", "application"
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track", "jquery", "bootstrap-dropdown", "bootstrap-alert"
     = csrf_meta_tags
   %title CRM Lite
   %body
