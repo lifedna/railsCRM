@@ -14,8 +14,8 @@ h2. Dependencies
 
 To use this application, you will need:
 
-* The Ruby language (version 1.9.3)
-* Rails (version 3.2 or newer)
+* Ruby (2.0)
+* Rails (version 4.0 or newer)
 * Mongoid
 * Rspec
 * Cancan
