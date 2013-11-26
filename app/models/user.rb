@@ -14,8 +14,6 @@ class User
   field :role
   field :invited,    :type => Boolean
 
-  #attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
-
   #referenced_in :organisation
   #references_many :prospects
   #references_many :leads
